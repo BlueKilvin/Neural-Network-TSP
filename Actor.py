@@ -213,16 +213,15 @@ class Decoder1(nn.Module):
             else:
                 _input_first = torch.cat([first_node, _input], dim=-1)
 
-            # -----------------------------------------------------------------------------pool+cat(first_node,current_node)
+            # pool+cat(first_node,current_node)
             _input_first = self.fc(_input_first)
             pool = self.fc1(pool)
             decoder_input = _input_first + pool
-            # -----------------------------------------------------------------------------cat(pool,first_node,current_node)
+            # cat(pool,first_node,current_node)
 
             # decoder_input = torch.cat([pool,_input_first], dim=-1)
             # decoder_input  = self.fc(decoder_input)
-            # -----------------------------------------------------------------------------------------------------------
-            #                 print (hx.size(),encoder_inputs.size(),mask.size())
+            # print (hx.size(),encoder_inputs.size(),mask.size())
             p = self.prob(decoder_input, decoder_input, encoder_inputs, mask,T)
 
             dist = Categorical(p)

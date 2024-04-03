@@ -46,9 +46,9 @@ def adv_normalize(adv):
     return n_advs
 
 def train():
-    #------------------------------------------------------------------------------------------------------------------------------
+    #-------------------------------------
     class RunBuilder():
-        @staticmethod  # 不用产生实例对象就可以直接调用该类
+        @staticmethod 
         def get_runs(params):
             Run = namedtuple('Run', params.keys())
             runs = []
@@ -64,8 +64,8 @@ def train():
         conv_laysers=[4],
         data_size=[12800]
     )
-    runs = RunBuilder.get_runs(params)#一次训练多个超参数
-    #-------------------------------------------------------------------------------------------------------------------------------------
+    runs = RunBuilder.get_runs(params)
+    #--------------------------------------------
 
     folder = 'Tsp-{}-GAT'.format(n_nodes)
     filename = 'rollout'

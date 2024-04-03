@@ -96,14 +96,14 @@ def tsp_matplotlib(Greedy=True):
         batch = next(iter(dl))
         batch.to(device)
         agent.eval()
-        # -------------------------------------------------------------------------------------------Greedy
+        # ------------------------Greedy----------------------------
         with torch.no_grad():
             tour, _,_ = agent(batch, n_nodes, True)
 
             #cost = reward1(batch.x, tour.detach(), n_nodes)
             #print(cost)
             #print(tour)
-    # -------------------------------------------------------------------------------------------sampling1280
+    # -----------------sampling1280------------------------------
     else:
         datas_ = []
         batch_size1 = 128  # sampling batch_size

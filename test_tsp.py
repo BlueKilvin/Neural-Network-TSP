@@ -29,7 +29,7 @@ def evaliuate(valid_loder,n_node):
 
         path1 = os.path.join(filepath, 'actor.pt')
         actor.load_state_dict(torch.load(path1, device))
-    # -------------------------------------------------------------Greedy
+    # -----------Greedy-------------------------------------------
     cost, tour = rollout(actor, valid_loder, n_node)
     cost = cost.mean()
     print('Problem:TSP''%s' % n_node,'/ Average distance:',cost.item())
